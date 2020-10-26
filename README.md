@@ -5,7 +5,7 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 
 0. Instalar LARAVEL con composer de forma global
 
-	$ composer global require laravel/installer (no lo probe)
+		$ composer global require laravel/installer (no lo probe)
 
 1. Instalar composer
 
@@ -13,15 +13,15 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 
 - Instalar dependencias
 	
-	$ sudo apt install php7.4-mbstring
-	$ sudo apt install php7.4-xml
+		$ sudo apt install php7.4-mbstring
+		$ sudo apt install php7.4-xml
 	
 - Crear proyecto en laravel 5.6
 
-	$ composer create-project --prefer-dist laravel/laravel laravel "5.6.*"
+		$ composer create-project --prefer-dist laravel/laravel laravel "5.6.*"
 	
-	$ cd hola_mundo
-	$ php artisan serve
+		$ cd hola_mundo
+		$ php artisan serve
 
 - En el browser dirigirse a http://127.0.0.1:8000/
 	
