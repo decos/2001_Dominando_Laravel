@@ -1,7 +1,7 @@
 # 2001_Dominando_Laravel
 Aprende a crear aplicaciones robustas y escalables con el framework más popular de PHP, Laravel
 
-## Crear Proyecto en Laravel
+## Crear Proyecto de Laravel
 
 0. Instalar LARAVEL con composer de forma global
 
@@ -18,7 +18,7 @@ $ composer global require laravel/installer (no lo probe)
 	
 	- Crear proyecto en laravel 5.6
 
-	$ composer create-project --prefer-dist laravel/laravel hola_mundo "5.6.*"
+	$ composer create-project --prefer-dist laravel/laravel laravel "5.6.*"
 	
 	$ cd hola_mundo
 	$ php artisan serve
