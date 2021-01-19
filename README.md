@@ -37,6 +37,7 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 
 ## Estructuras de control de Blade
 
-
+- Directiva @foreach
+- Directiva @if
 		
 
