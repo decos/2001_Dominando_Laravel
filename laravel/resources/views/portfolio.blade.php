@@ -7,9 +7,7 @@
 
     <ul>
         @forelse ($portfolio as $portfolioItem)
-            <li> {{ $portfolioItem['title'] }}
-                <pre>{{ var_dump($loop) }}</pre>
-            </li>
+            <li> {{ $portfolioItem['title'] }} </li>
         @empty
             <li>No hay proyectos para mostrar</li>
         @endforelse

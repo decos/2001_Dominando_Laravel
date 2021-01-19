@@ -42,5 +42,8 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 - Directiva @isset
 - Directiva @forelse
 - Imprimir información del LOOP
+- Directiva @for
+- Directiva @while
+- Directiva @switch
 		
 
