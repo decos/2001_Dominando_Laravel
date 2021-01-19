@@ -25,3 +25,15 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 
 - En el browser dirigirse a http://127.0.0.1:8000/
 	
+- Matar proceso que usa el puerto 8000
+
+		$ sudo kill -9 `sudo lsof -t -i:8000`
+		
+## Blade, el motor de plantillas de Laravel
+
+- Directiva @extends
+- Directiva @yield
+- Directiva @section
+
+		
+
