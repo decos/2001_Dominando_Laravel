@@ -46,4 +46,36 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 - Directiva @while
 - Directiva @switch
 		
+## Controladores
+
+1. Serie de comandos útiles de Laravel
+
+	$ php artisan
+	
+2. Ver rutas definidas
+
+	$ php artisan route:list
+	$ php artisan r:l
+	
+3. Crear un nuevo controlador para la vista `portfolio`
+
+	$ php artisan make:controller PortfolioController
+	
+4. Mostrar comandos de ayuda
+
+	$ php artisan make:controller PortfolioController -h
+	
+- Por defecto los controladores se crean en el siguiente directorio:
+
+	app\Http\Controllers
+	
+5. Crear un nuevo controlador para la vista `portfolio` usando la opción `-i`
+	
+	$ php artisan make:controller PortfolioController -i
+	
+- Si lo revisamos nos trae un metodo mágico llamado `invoke`
+
+
+	
+
 
