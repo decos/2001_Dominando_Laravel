@@ -75,7 +75,65 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 	
 - Si lo revisamos nos trae un metodo mágico llamado `invoke`
 
+## Controladores Resource y API
 
+0. Comentar la siguiente linea en el archivo `web.php`
+
+1. Crear un nuevo controlador para la vista `portfolio` usando la opción `--resource`
+
+		$ php artisan make:controller PortfolioController --resource
+		$ php artisan make:controller PortfolioController -r
+		
+2. Generar la ruta para listar los proyectos
+
+		$ Route::get('/portfolio', 'PortfolioController@index')->name('portfolio');
+		
+3. Para generar las 7 rutas para los 7 metodos definidos en el Controlador
+
+		$ Route::resource('projects', 'PortfolioController');
+		
+4. Mostrar rutas `resource` en consola
+
+		$ php artisan r:l
+		
+- Metodo `only` filtra las rutas que se deben mostrar
+
+		$ Route::resource('projects', 'PortfolioController')->only(['index', 'show']);
+		
+- Metodo `except` filtra las rutas que NO se deben mostrar
+
+		$ Route::resource('projects', 'PortfolioController')->except(['index', 'show']);
 	
+6. Crear un nuevo controlador para la vista `portfolio` usando la opción `--api`
+
+		$ php artisan make:controller PortfolioController --api
+		
+- La unica diferencia con el controlador `resource` es que excluye los metodos `create` y `edit`
+
+- Asi mismo podemos hacer uso de los metodos `only` y `except`
+
+7. Volvemos a usar el route `resource` (web.php)
+
+		$ Route::resource('proyectos', 'PortfolioController');
+		
+8. Cambiar los metodos `create` y `edit` si nuestro idioma es español
+
+- Dirigirse al archivo `AppServiceProvider`
+
+- Importar la clase `Route`
+
+		$ use Illuminate\Support\Facades\Route;
+
+- Actualizar el metodo `boot`
+
+		```
+		public function boot()
+		{
+			Route::resourceVerbs([
+			    'create' => 'crear',
+			    'edit' => 'editar',
+			]);
+		}
+    		```
 
 
