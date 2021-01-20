@@ -1,6 +1,8 @@
 # 2001_Dominando_Laravel
 Aprende a crear aplicaciones robustas y escalables con el framework más popular de PHP, Laravel
 
+# Sección 1: Nivel Principiante
+
 ## Crear Proyecto de Laravel
 
 0. Instalar LARAVEL con composer de forma global
@@ -133,6 +135,26 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 			    'edit' => 'editar',
 			]);
 		}
+
+## Activacion de Links de Navegación
+
+- `request()` : Nos devuelve una instancia de la clase Illuminate\Http\Request
+
+- `routeIs` : Verificando el nombre de la ruta
+
+- Los archivos que colocamos dentro de `app`, se cargan solo si son clases. En este caso `helpers.php` es un archivo
+
+- Debemos decirle a composer (que es el manejador de paquetes en PHP) que nos cargue el archivo `helpers.php` para poder utilizarlo en todas partes.
+
+- En la sección `autoload` del archivo `composer.json` se definen los archivos que se van a cargar automaticamente
+
+1. Usar la llave `files`y colocar en el arreglo los archivos que queremos cargar.
+
+2. Debemos decirle a composer que hubo un cambio y que debe compilar el autocargador
+
+		$ composer dumpautoload
+
+- Directiva @include
 
 
 
