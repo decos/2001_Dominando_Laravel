@@ -126,7 +126,6 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 
 - Actualizar el metodo `boot`
 
-		```
 		public function boot()
 		{
 			Route::resourceVerbs([
@@ -134,6 +133,6 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 			    'edit' => 'editar',
 			]);
 		}
-    		```
+
 
 
