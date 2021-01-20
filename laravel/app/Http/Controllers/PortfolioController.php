@@ -7,12 +7,11 @@ use Illuminate\Http\Request;
 class PortfolioController extends Controller
 {
     /**
-     * Handle the incoming request.
+     * Display a listing of the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request)
+    public function index()
     {
         $portfolio = [
             ['title' => 'Proyecto #1'],
@@ -21,7 +20,6 @@ class PortfolioController extends Controller
             ['title' => 'Proyecto #4'],
         ];
 
-        // Retornar la vista portfolio
         return view('portfolio', compact('portfolio'));
     }
 }
