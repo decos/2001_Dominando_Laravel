@@ -156,5 +156,25 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 
 - Directiva @include
 
+## Como enviar formularios
+
+1. Añadir un formulario en la vista `contact`
+
+2. Crear una nueva ruta que responda a la URL pero con el metodo POST
+
+		$ Route::post('/contact', 'MessagesController@store');
+
+3. Crear el controlador `MessagesController`
+
+		$ php artisan make:controller MessagesController
+		
+4. Codear la función `store`
+
+- Error 419: Laravel nos protege automaticamente de ataques XXS o Ataques de suplantación de identidad
+
+- TODOS LOS FORMULARIOS QUE CREEMOS EN LARAVEL DEBERAN TENER UN TOKEN PARA VERIFICAR QUE EL FORMULARIO ES SEGURO
+
+5. Añadir la directiva `@csrf` dentro de los formularios
+
 
 
