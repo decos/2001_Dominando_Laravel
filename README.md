@@ -176,5 +176,27 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 
 5. Añadir la directiva `@csrf` dentro de los formularios
 
+## Como validar formularios
+
+- Reglas de Validaciones
+
+		- https://laravel.com/docs/8.x/validation#available-validation-rules
+
+- Usar el metodo `validate` en el Controlador para añadir el tipo de validación.
+
+- En Laravel tenemos acceso a la variable `$errors` en todas las vistas
+
+- A traves del metodo `any` validamos si existe algun error
+
+		$ $errors->any()
+		
+- Para imprimir codigo HTML agregamos en vez de dos llaves, dos signos de admiración. Ejemplo:
+
+		$ {!! $errors->first('name', '<small>:message</small><br>') !!}
+
+- Mantener la información ingresada al formulario a pesar del error
+
+		$ value="{{ old('name') }}"
+		$ value="{{ old('email') }}"
 
 
