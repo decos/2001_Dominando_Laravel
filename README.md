@@ -199,4 +199,52 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 		$ value="{{ old('name') }}"
 		$ value="{{ old('email') }}"
 
+## Como traducir tus aplicaciones en Laravel
+
+		- https://github.com/Laravel-Lang/lang
+
+1. Modificar el archivo de configuraciones generales
+
+		- /home/decos/repos/2001_Dominando_Laravel/laravel/config/app.php
+
+2. Modificar el valor del atributo `locale`, por defecto es `en`
+
+		$ 'locale' => 'es',
+		
+3. Creamos el directorio `es` dentro de `lang`
+
+4. Si no encuentra la traduccion entonces por defecto la buscara dentro del directorio `en` debido a esta regla
+
+		$ 'fallback_locale' => 'en',
+		
+- Para agregar mensajes de error personalizados, se debera añadir un segundo atributo de tipo Array al metodo `validate`. Ejemplo:
+
+		$ 'name.required' => 'Necesito tu nombre'
+		
+- Para traducir textos estaticos que se encuentran en la vista debemos hacer lo siguiente:
+
+		$ <h1>{{ __('Contact') }}</h1>
+		
+- Es importante tener en cuenta las mayusculas y minusculas
+
+1. Añadir un archivo de tipo `json` en el directorio `resources/lang`
+
+		'''
+		{
+		    "Contact"   : "Contacto"
+		}
+		'''
+
+- Tambien podemos usar la directiva `@lang` en la vista. Ejemplo:
+
+		$ @lang('Home')
+		
+- Tambien se puede setear el lenguaje desde el archivo de rutas
+
+		$ App::setlocale('es');
+		
+- Tambien se pueden traducir los mensajes de error
+
+		$ 'name.required' => __('I need your name')
+
 

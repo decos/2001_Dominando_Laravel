@@ -89,6 +89,9 @@ Route::get('/', function () {
     ['title' => 'Proyecto #4'],
 ]; */
 
+// Tambien se puede setear el lenguaje desde el archivo de rutas
+// App::setlocale('es');
+
 // Se le puede asignar un nombre
 Route::view('/', 'home')->name('home');
 Route::view('/about', 'about')->name('about');
