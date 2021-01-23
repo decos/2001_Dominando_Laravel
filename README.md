@@ -229,11 +229,9 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 
 1. Añadir un archivo de tipo `json` en el directorio `resources/lang`
 
-		'''
 		{
 		    "Contact"   : "Contacto"
 		}
-		'''
 
 - Tambien podemos usar la directiva `@lang` en la vista. Ejemplo:
 
