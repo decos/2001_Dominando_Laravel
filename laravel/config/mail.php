@@ -13,6 +13,7 @@ return [
     |
     | Supported: "smtp", "sendmail", "mailgun", "mandrill", "ses",
     |            "sparkpost", "log", "array"
+    | ses: Simple Email Service (Amazon)
     |
     */
 

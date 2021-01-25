@@ -245,4 +245,68 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 
 		$ 'name.required' => __('I need your name')
 
+## Como enviar emails en Laravel
+
+1. Crear un `mailable`
+
+		$ php artisan make:mail MessageRecieved
+		
+2. Actualizar la funcón `build` de la clase `MessageRecieved`
+
+3. Añadir una nueva vista con el nombre `message-received` y añadir HTML
+
+4. Actualizar la variable de entorno `MAIL_DRIVER` y asignarle el valor `log`
+
+5. Limpiar el cache cada vez que se modifique el archivo que contiene las variables de entorno
+
+		$ php artisan config:cache
+		
+6. Revisar el archivo `/laravel/storage/logs/laravel.log` y verificar que se encuentra la información del correo
+
+7. Añadir las variables de entorno `MAIL_FROM_ADDRESS` y `MAIL_FROM_NAME` y asignarle valores
+
+8. Para cambiar el asunto del email, se puede añadir una propiedad en la clase `MessageRecieved`
+
+9. Imprimir la información ingresada por el formularia en el `log`, actualizando el `body` de la vista `message-received`
+
+10. Si deseas visualizar el email en el navegador es retornar una nueva instancia de la clase `mailable`
+
+- Otra forma de visualizar el email es utilizando `Mailtrap`
+
+		https://mailtrap.io/
+		
+11. Creamos una cuenta (en caso de no tenerla) y de la configuración de la bandeja de entrada obtenemos los siguientes datos:
+
+		- MAIL_USERNAME
+		- MAIL_PASSWORD
+		- MAIL_ENCRYPTION
+
+12. Modificamos nuevamente la variable de entorno `MAIL_DRIVER` a `smtp`, limpiamos cache y probamos
+
+- Como Enviar emails de verdad ? (producción)
+
+13. Laravel por defecto no soporta `sendgrid`, asi que tendremos que instalarlo agregando la dependencia en el archivo `composer.json` y ejecutando composer update
+
+		- "s-ichikawa/laravel-sendgrid-driver": "~2.0"
+		$ composer update
+		
+14. Crear una cuenta en `SendGrid` y generar un API Key
+
+		- https://app.sendgrid.com/settings/api_keys
+		
+15. Actualizar el archivo de configuraciones `services.php`
+
+		'sendgrid' => [
+			'api_key' => env('SENDGRID_API_KEY'),
+		],
+		  
+16. Para tener una referencia de las variables de entorno de produccion podemos usar `env.example`
+
+		/laravel/.env.example
+		
+		#Produccion
+		#MAIL_DRIVER=sendgrid
+		#SENDGRID_API_KEY='YOUR_SENDGRID_API_KEY'
+		
+
 

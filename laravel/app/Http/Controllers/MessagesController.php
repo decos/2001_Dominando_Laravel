@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MessageRecieved;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class MessagesController extends Controller
 {
@@ -13,7 +15,7 @@ class MessagesController extends Controller
         // return "Procesar el formulario";
 
         // Otra forma más simple
-        request()->validate([
+        $message = request()->validate([
             'name' => 'required',
             // 'email' => 'required | email'
             'email' => ['required', 'email'],
@@ -23,6 +25,16 @@ class MessagesController extends Controller
             'name.required' => __('I need your name')
         ]);
 
-        return "Datos validados";
+        // Usar el metodo `queue` en lugar de `send`
+        // Nos ayudan a realizar procesos en segundo plano
+        // Para utilizar `queue` debemos realizar una configuración adicional
+        // Pero si no esta configurada utilizará por defecto `send`
+        Mail::to('dabanto21@gmail.com')->queue(new MessageRecieved($message));
+
+        // Imprimir el correo en el navegador
+        // utilizando la instancia de la clase `mailable`
+        // TODO: return new MessageRecieved($message);
+
+        return "Mensaje Enviado";
     }
 }
