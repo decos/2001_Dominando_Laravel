@@ -315,18 +315,55 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 
 1. Configuración de la base de datos
 
-	DB_CONNECTION=mysql
-	DB_HOST=127.0.0.1
-	DB_PORT=3306
-	DB_DATABASE=laravel
-	DB_USERNAME=root
-	DB_PASSWORD=password
+		DB_CONNECTION=mysql
+		DB_HOST=127.0.0.1
+		DB_PORT=3306
+		DB_DATABASE=laravel
+		DB_USERNAME=root
+		DB_PASSWORD=password
+		
+- Si modificas el archivo de entorno, ejecutar lo siguiente:
+
+		`php artisan config:cache`
 	
 2. Crear la base de datos en mysql
 
-	`CREATE DATABASE laravel;`
+		`CREATE DATABASE laravel;`
 	
+## Que son y como se utilizan las migraciones
 
+1. Actualizar la migración `database/migrations/2014_10_12_000000_create_users_table.php`
 
+2. Correr las migraciones (métodos UP), ejecutando:
+
+		php artisan migrate
+		
+- En caso de obtener un error se deberá instalar lo siguiente:
+
+		$ sudo apt install php-mysql
+
+3. Correr las migraciones (métodos DOWN), ejecutando:
+
+		php artisan migrate:rollback
+
+4. Para hacer rollback solo de la última migración, ejecutamos:
+
+		php artisan migrate:rollback --step=1
+		
+5. Hacer rollback de todas las migraciones y volver a ejecutarlas nuevamente (COMANDO DESTRUCTIVO)
+
+		php artisan migrate:fresh
+		
+6. Crear una migración
+
+		php artisan make:migration add_phone_to_users_table
+		
+- vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/TableGuesser.php
+
+7. Crear la tabla de proyectos
+
+		php artisan make:migration create_projects_table
+		
+- Ejecutar `php artisan migrate:fresh`
 
 
