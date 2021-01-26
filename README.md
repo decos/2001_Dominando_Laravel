@@ -308,5 +308,25 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 		#MAIL_DRIVER=sendgrid
 		#SENDGRID_API_KEY='YOUR_SENDGRID_API_KEY'
 		
+## Variables de entorno y bases de datos
+
+- APP_ENV: Define el entorno en el que esta la aplicación. (local, production)
+- APP_DEBUG: Para que nos muestre o viceversa los errores. (true, false)
+
+1. Configuración de la base de datos
+
+	DB_CONNECTION=mysql
+	DB_HOST=127.0.0.1
+	DB_PORT=3306
+	DB_DATABASE=laravel
+	DB_USERNAME=root
+	DB_PASSWORD=password
+	
+2. Crear la base de datos en mysql
+
+	`CREATE DATABASE laravel;`
+	
+
+
 
 
