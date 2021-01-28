@@ -366,4 +366,37 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 		
 - Ejecutar `php artisan migrate:fresh`
 
+## ELOQUENT: Obtener registros de la base de datos
+
+- Una forma de interactuar con la base de datos es utilizando el Query Builder
+
+- La solucion del error `Could not fin driver` al utilizar la clase `DB`, fue reiniciar el proyecto `php artisan serve`
+
+- Laravel trae su propio ORM (Object-Relational Mapping), el cual es `Eloquent`
+
+- Eloquent implementa el patron `Active Record` que usa los metodos `save`, `update`, `delete`
+
+- Crear una clase o entidad que represente la tabla  `projects`
+
+- La convencion para llamar a los modelos es la primera letra en mayuscula y en singular. Ejemplo:
+
+		$ php artisan make:model Project -m
+		
+	-m : Crea el modelo junto con el archivo migración
+		
+- En caso de haber más de una palabra usariamos `came case`
+
+		$ php artisan make:model MyProject -m
+		
+- Creamos el modelo `project`
+
+		$ php artisan make:model Project
+		
+- Carbon es una excelente libreria para manipular fechas en PHP
+
+		https://carbon.nesbot.com/
+		
+
+		
+
 
