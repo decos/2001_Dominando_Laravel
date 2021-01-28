@@ -98,7 +98,7 @@ Route::view('/quienes-somos', 'about')->name('about');
 
 // Route::view('/portfolio', 'portfolio', compact('portfolio'))->name('portfolio');
 Route::get('/portafolio', 'ProjectController@index')->name('projects.index');
-Route::get('/portafolio/{id}', 'ProjectController@show')->name('projects.show');
+Route::get('/portafolio/{project}', 'ProjectController@show')->name('projects.show');
 
 // Route::resource('projects', 'PortfolioController')->except(['index', 'show']);
 // Route::resource('proyectos', 'PortfolioController');

@@ -35,10 +35,11 @@ class ProjectController extends Controller
         ]);
     }
 
-    public function show ($id)
+    // Route Model Binding
+    public function show (Project $project)
     {
         // Cuando retornamos un modelo eloquent, Laravale lo convierte en JSON
-        $project = Project::findOrFail($id);
+        // $project = Project::findOrFail($id);
 
         // carpeta.fichero
         return view('projects.show', [

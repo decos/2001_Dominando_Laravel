@@ -405,5 +405,9 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 - Crear el metodo `show` en `PortfolioController`
 
 - Restructuración de código
+
+## Route Model Binding - URLs amigables
+
+
 		
 
