@@ -6,7 +6,7 @@ use App\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class PortfolioController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -30,8 +30,21 @@ class PortfolioController extends Controller
         // $portfolio = Project::latest('updated_at')->get();
 
         // Por defecto es 15 páginas
-        return view('portfolio', [
-            'projects' => Project::latest()->paginate(1)
+        return view('projects.index', [
+            'projects' => Project::latest()->paginate()
         ]);
+    }
+
+    public function show ($id)
+    {
+        // Cuando retornamos un modelo eloquent, Laravale lo convierte en JSON
+        $project = Project::findOrFail($id);
+
+        // carpeta.fichero
+        return view('projects.show', [
+            'project' => $project
+        ]);
+
+        // De esta forma en la vista show ya tendremos acceso a la variable project
     }
 }

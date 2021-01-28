@@ -63,7 +63,7 @@ Route::get('/', function () {
 /* Route::get('/', function () {
     $nombre = "Diego";
     // return view('home')->with('nombre', $nombre);
-    
+
     // Otra forma es a traves de un arreglo
     // return view('home')->with(['nombre' => $nombre]);
 
@@ -94,12 +94,14 @@ Route::get('/', function () {
 
 // Se le puede asignar un nombre
 Route::view('/', 'home')->name('home');
-Route::view('/about', 'about')->name('about');
-// Route::view('/portfolio', 'portfolio', compact('portfolio'))->name('portfolio');
-Route::get('/portfolio', 'PortfolioController@index')->name('portfolio');
-Route::view('/contact', 'contact')->name('contact');
+Route::view('/quienes-somos', 'about')->name('about');
 
-Route::post('/contact', 'MessagesController@store');
+// Route::view('/portfolio', 'portfolio', compact('portfolio'))->name('portfolio');
+Route::get('/portafolio', 'ProjectController@index')->name('projects.index');
+Route::get('/portafolio/{id}', 'ProjectController@show')->name('projects.show');
 
 // Route::resource('projects', 'PortfolioController')->except(['index', 'show']);
 // Route::resource('proyectos', 'PortfolioController');
+
+Route::view('/contacto', 'contact')->name('contact');
+Route::post('contact', 'MessageController@store')->name('messages.store');

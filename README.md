@@ -396,7 +396,14 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 
 		https://carbon.nesbot.com/
 		
+## ELOQUENT: Obtener registros individuales
 
+- Crear la ruta `PortfolioController@show`
+	
+		Route::get('/portfolio/{id}', 'PortfolioController@show')->name('portfolio.show');
 		
+- Crear el metodo `show` en `PortfolioController`
 
+- Restructuración de código
+		
 

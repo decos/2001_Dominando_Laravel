@@ -6,7 +6,7 @@ use App\Mail\MessageRecieved;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
-class MessagesController extends Controller
+class MessageController extends Controller
 {
     function store(/* Request $request */)
     {
