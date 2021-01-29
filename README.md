@@ -509,3 +509,11 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 2. Definir la ruta `projects.destroy`
 
 3. Codear el método `destroy` en el controlador `Project`
+
+## Route Resource
+
+1. Ejecutar en linea de comandos lo siguiente para listar todas  las rutas
+
+		$ php artisan route:list
+
+2. Usar `Route::resource` en el fichero `web.php`

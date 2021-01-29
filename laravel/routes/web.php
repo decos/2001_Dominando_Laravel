@@ -97,16 +97,22 @@ Route::view('/', 'home')->name('home');
 Route::view('/quienes-somos', 'about')->name('about');
 
 // 7 RUTAS REST
+// prefijo de la URL + controlador + prefijo del nombre
+// Priorizar el orden de las rutas
+
+Route::resource('portafolio', 'ProjectController')
+    ->parameters(['portafolio' => 'project'])
+    ->names('projects');
 
 // Route::view('/portfolio', 'portfolio', compact('portfolio'))->name('portfolio');
-Route::get('/portafolio', 'ProjectController@index')->name('projects.index');
-// Priorizar el orden de las rutas
+
+/* Route::get('/portafolio', 'ProjectController@index')->name('projects.index');
 Route::get('/portafolio/crear', 'ProjectController@create')->name('projects.create');
 Route::get('/portafolio/{project}/editar', 'ProjectController@edit')->name('projects.edit');
 Route::post('/portafolio', 'ProjectController@store')->name('projects.store');
 Route::patch('/portafolio/{project}', 'ProjectController@update')->name('projects.update');
 Route::get('/portafolio/{project}', 'ProjectController@show')->name('projects.show');
-Route::delete('/portafolio/{project}', 'ProjectController@destroy')->name('projects.destroy');
+Route::delete('/portafolio/{project}', 'ProjectController@destroy')->name('projects.destroy'); */
 
 // Route::resource('projects', 'PortfolioController')->except(['index', 'show']);
 // Route::resource('proyectos', 'PortfolioController');
