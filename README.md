@@ -447,3 +447,25 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 - Añadimos la propiedad `guarded` en el modelo asignandole un arreglo vacío
 
 		protected $guarded = [];
+		
+- Añadir validaciones en el metodo `store` del controlador
+
+## Qué son y cómo utilizar los Form Request
+
+- Son clases dedicadas para encapsular la lógica de validación y autorización. 
+
+- Estan pensandos para validar formulario complejos
+
+1. Para crear un `Form Request` se puede realizar desde la terminal
+
+		$ php artisan make:request CreateProjectRequest
+
+- Por defecto los `Form Request` se almacenan en el directorio `app/Http/Requests`
+
+- Todo `Form Request` consta de dos metodos, el metodo `authorize` y el metodo `rules`
+
+2. Inyectamos el `Form Request` en el controlador `Project`
+
+3. Para personalizar mensajes de error debemos añadir la funcion `messages` en el `Form Request`
+
+

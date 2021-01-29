@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateProjectRequest;
 use App\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -54,7 +55,8 @@ class ProjectController extends Controller
         return view('projects.create');
     }
 
-    public function store()
+    // Inyectar la clase `CreateProjectRequest`
+    public function store(CreateProjectRequest $request)
     {
         /* Project::create([
             'title' => request('title'),
@@ -72,13 +74,16 @@ class ProjectController extends Controller
         // Otra forma de protegernos de la asiganción masiva es validar los campos
         // antes de realizar el almacenamiento
 
-        $fields = request()->validate([
+        /* $fields = request()->validate([
             'title' => 'required',
             'url' => 'required',
             'description' => 'required',
         ]);
 
-        Project::create($fields);
+        Project::create($fields); */
+        
+        // Usando el Form Request
+        Project::create($request->validated());
 
         return redirect()->route('projects.index');
     }
