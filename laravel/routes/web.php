@@ -100,7 +100,10 @@ Route::view('/quienes-somos', 'about')->name('about');
 Route::get('/portafolio', 'ProjectController@index')->name('projects.index');
 // Priorizar el orden de las rutas
 Route::get('/portafolio/crear', 'ProjectController@create')->name('projects.create');
+Route::get('/portafolio/{project}/editar', 'ProjectController@edit')->name('projects.edit');
+
 Route::post('/portafolio', 'ProjectController@store')->name('projects.store');
+Route::patch('/portafolio/{project}', 'ProjectController@update')->name('projects.update');
 Route::get('/portafolio/{project}', 'ProjectController@show')->name('projects.show');
 
 // Route::resource('projects', 'PortfolioController')->except(['index', 'show']);

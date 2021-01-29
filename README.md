@@ -468,4 +468,30 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 
 3. Para personalizar mensajes de error debemos añadir la funcion `messages` en el `Form Request`
 
+## ELOQUENT: Actualizar registros
 
+1. Añadir un enlace en la vista del detalle de cada proyecto (`show`)
+
+2. Añadir una nueva ruta 
+
+		Route::get('/portafolio/$project/editar', 'ProjectController@edit')->name('projects.edit');
+		
+3. Codear el método `edit` en el controlador `Project`
+
+4. Creamos la vista `edit.blade.php`
+
+5. Definir la ruta `projects.update`
+
+6. Para actualizar un registro debemos añadir una nueva ruta
+
+		Route::patch('/portafolio/{project}', 'ProjectController@update')->name('projects.update');
+		
+7. Añadir la directiva `@patch`, para setear el metodo oculto `PATCH` dentro del formulario
+
+		@method('PATCH')
+
+8. Codear el método `update` en el controlador `Project`
+
+9. Inyectar el `form request` creado en la lección anterior
+
+10. 

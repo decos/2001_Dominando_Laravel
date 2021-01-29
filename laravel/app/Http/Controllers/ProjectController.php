@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateProjectRequest;
+use App\Http\Requests\SaveProjectRequest;
 use App\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -56,7 +56,7 @@ class ProjectController extends Controller
     }
 
     // Inyectar la clase `CreateProjectRequest`
-    public function store(CreateProjectRequest $request)
+    public function store(SaveProjectRequest $request)
     {
         /* Project::create([
             'title' => request('title'),
@@ -81,10 +81,24 @@ class ProjectController extends Controller
         ]);
 
         Project::create($fields); */
-        
+
         // Usando el Form Request
         Project::create($request->validated());
 
         return redirect()->route('projects.index');
+    }
+
+    public function edit(Project $project)
+    {
+        return view('projects.edit', [
+            'project' => $project
+        ]);
+    }
+
+    public function update(Project $project, SaveProjectRequest $request)
+    {
+        $project->update($request->validated());
+
+        return redirect()->route('projects.show', $project);
     }
 }
