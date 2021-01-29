@@ -48,4 +48,23 @@ class ProjectController extends Controller
 
         // De esta forma en la vista show ya tendremos acceso a la variable project
     }
+
+    public function create()
+    {
+        return view('projects.create');
+    }
+
+    public function store()
+    {
+        /* Project::create([
+            'title' => request('title'),
+            'url' => request('url'),
+            'description' => request('description'),
+        ]); */
+
+        // En el caso de tener el mismo nombre del campo que recibimos del formulario
+        Project::create(request()->all());
+
+        return redirect()->route('projects.index');
+    }
 }

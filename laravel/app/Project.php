@@ -12,6 +12,14 @@ class Project extends Model
     // En caso de que la convension no funcione, siempre se puede definir manualmente
     // protected $table = "projects";
 
+    // En el modelo Project agregar la propiedad `fillable`
+    // y dentro de el agregar los campos que se agregaran masivamente
+    protected $fillable = [
+        'title',
+        'url',
+        'description'
+    ];
+
     // Sobrescribiendo el metodo `getRouteKeyName` en la clase Project
     public function getRouteKeyName()
     {

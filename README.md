@@ -408,6 +408,38 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 
 ## Route Model Binding - URLs amigables
 
+- Usar Route Model Binding, el permite inyectar la instancia  de un modelo en las rutas
 
+-Sobrecribir el metodo `getRouteKeyName` en la clase `Project`
+
+- Añadir un campo en la tabla `projects`
 		
+## ELOQUENT: Insertar registros
+
+1. Crear la vista `create.blade.php` en el directorio `projects`
+
+2. Añadimos la ruta para acceder al formulario
+
+		Route::get('/portafolio/crear', 'ProjectController@create')->name('projects.create');
+		
+- Tener en cuenta la prioridad de rutas
+
+3. Añadir el método `create` en el controlador `Project`
+		
+4. Añadir el formulario en la vista `create.blade.php`
+
+- NO OLVIDAR AGREGAR EL TOKEN `CSRF` => `@csrf`, dentro del formulario
+
+5. Añadir una nueva ruta para almecanar los datos
+
+		Route::post('/portafolio', 'ProjectController@store')->name('projects.store');
+		
+6. Añadir el método `store` en el controlador `Project`
+
+7. Aladir la propiedad `fillable` en el modelo `Project`, el cual permitira añadir los campos que se agregaran masivamente
+
+8. Añadir el enlace `Crear proyecto` en la vista `index`
+
+
+
 
