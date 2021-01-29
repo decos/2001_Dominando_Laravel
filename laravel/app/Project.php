@@ -14,11 +14,14 @@ class Project extends Model
 
     // En el modelo Project agregar la propiedad `fillable`
     // y dentro de el agregar los campos que se agregaran masivamente
-    protected $fillable = [
+    /* protected $fillable = [
         'title',
         'url',
         'description'
-    ];
+    ]; */
+
+    // Todos los campos se van a guardar en la base de datos
+    protected $guarded = [];
 
     // Sobrescribiendo el metodo `getRouteKeyName` en la clase Project
     public function getRouteKeyName()

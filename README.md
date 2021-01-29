@@ -440,6 +440,10 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 
 8. Añadir el enlace `Crear proyecto` en la vista `index`
 
+## Que significa la asignación masiva
 
+- Podemos deshabilitar la protección que viene en Laravel siempre y cuando no usemos `request()->all()`
 
+- Añadimos la propiedad `guarded` en el modelo asignandole un arreglo vacío
 
+		protected $guarded = [];

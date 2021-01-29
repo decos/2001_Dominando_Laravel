@@ -63,7 +63,22 @@ class ProjectController extends Controller
         ]); */
 
         // En el caso de tener el mismo nombre del campo que recibimos del formulario
-        Project::create(request()->all());
+        // Project::create(request()->all()); ['_token', 'title', 'url', 'description']
+
+        // Hacer el filtro de los campos que necesitamos almacenar
+        // No tendriamos problemas de asignación vacía
+        // Project::create(request()->only('titulo', 'url', 'description'));
+
+        // Otra forma de protegernos de la asiganción masiva es validar los campos
+        // antes de realizar el almacenamiento
+
+        $fields = request()->validate([
+            'title' => 'required',
+            'url' => 'required',
+            'description' => 'required',
+        ]);
+
+        Project::create($fields);
 
         return redirect()->route('projects.index');
     }
