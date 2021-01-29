@@ -494,4 +494,10 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 
 9. Inyectar el `form request` creado en la lección anterior
 
-10. 
+## Reutilizando el formulario
+
+- Evitar duplicaciones de formulario
+
+1. Añadimos la vista `validation-errors` dentro del directorio `partials`
+
+2. Añadimos un fichero nuevo llamado `_form.blade.php`, el cual sera un fichero partial
