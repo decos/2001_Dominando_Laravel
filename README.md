@@ -501,3 +501,11 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 1. Añadimos la vista `validation-errors` dentro del directorio `partials`
 
 2. Añadimos un fichero nuevo llamado `_form.blade.php`, el cual sera un fichero partial
+
+## ELOQUENT: Eliminar registros
+
+1. Agregar un enlace en la vista `show` que nos permita eliminar proyectos
+
+2. Definir la ruta `projects.destroy`
+
+3. Codear el método `destroy` en el controlador `Project`
