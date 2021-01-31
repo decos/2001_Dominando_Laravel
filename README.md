@@ -527,3 +527,34 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 2. Mostrar mensajes flash de la sesión en la vista  `contact` 
 
 		@if (session('status'))
+		
+## Agregando login y registro
+
+1. Ejecutar el comando para que nos configure las rutas y vistas del login, registro y restablecimiento de contraseñas 
+
+		$ php artisan make:auth
+		
+- Como ya tenemos una vista `home` creada, confirmamos que no queremos que la reemplace
+
+2. Eliminar la ruta `home` creada y el controlador `HomeController`
+
+3. Modificar el redireccionamiento en los controladores `Register` y `Login`
+
+- Podemos acceder a los datos del usuario desde la vista usando el helper `auth`
+
+		{{ auth()->user() }}
+		
+4. Añadimos la directiva `@auth` para que se muestre el Nombre del usuario, solo si esta autenticado.
+
+5. Añadimos en la vista `nav` un enlace que nos redireccione a la vista `login`
+
+6. Modificar la redirección en el fichero `app/Http/Middleware/RedirectIfAuthenticated.php`
+
+7. Añadimos la directiva `guest` en la vista `nav` para que se muestre cuando el usuario no esta autenticado 
+
+8. Deshabilitar la vista para registrar usuarios, en las rutas se debe añadir una validación
+
+		Auth::routes(['register' => false]);
+
+- Sin embargo el paso 8 no funciono, y tuve que codear el resto de rutas manualmente
+
