@@ -35,6 +35,6 @@ class MessageController extends Controller
         // utilizando la instancia de la clase `mailable`
         // TODO: return new MessageRecieved($message);
 
-        return "Mensaje Enviado";
+        return back()->with('status', 'Recibimos tu mensaje, te responderemos en 24 horas');
     }
 }

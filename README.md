@@ -517,3 +517,13 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 		$ php artisan route:list
 
 2. Usar `Route::resource` en el fichero `web.php`
+
+## Como mostrar mensajes de sesión
+
+1. Setear mensaje flash de la sesión 
+
+		return back()->with('status', 'Recibimos tu mensaje, te responderemos en 24 horas');
+		
+2. Mostrar mensajes flash de la sesión en la vista  `contact` 
+
+		@if (session('status'))
