@@ -9,6 +9,16 @@ use Illuminate\Support\Facades\DB;
 
 class ProjectController extends Controller
 {
+
+    public function __construct ()
+    {
+        /* $this->middleware('auth')->only(
+            'create', 'edit', 'store', 'update', 'delete'
+        ); */
+
+        $this->middleware('auth')->except('index', 'show');
+    }
+
     /**
      * Display a listing of the resource.
      *
