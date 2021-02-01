@@ -555,6 +555,106 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 8. Deshabilitar la vista para registrar usuarios, en las rutas se debe añadir una validación
 
 		Auth::routes(['register' => false]);
+		
+9. Limpiar las rutas
+
+		
 
 - Sin embargo el paso 8 no funciono, y tuve que codear el resto de rutas manualmente
 
+## Cómo proteger rutas con usuario y contraseña
+
+- Para evitar acceso a las rutas o para protegerlas con usuario y contraseña podemos usar Middlewares
+
+- Los Middlewares son un mecanismo que filtran las petidiciones HTTP que se realizan en nuestra aplicación.
+
+1. La primera forma de agregar Middlewares es a través del fichero de rutas, ejemplo
+
+		Route::resource('portafolio', 'ProjectController')->parameters(['portafolio' => 'project'])->names('projects')->middleware('auth');
+
+2. La segunda es agregandolo en el constructor del controlador
+
+- Revisar el constructor del fichero `app/Http/Controllers/ProjectController.php`
+
+## Introducción a Laravel Mix
+
+- `resources`	: Directorio de ficheros fuente
+
+- `public`	: Directorio de ficheros finales
+
+- `sass`	: Es un Pre-procesador de CSS que nos permite agregar variables, funciones, mixes a CSS
+
+- Existen otros como Pre-procesadores de CSS como `LESS` y `Stylus`
+
+- Usamos `Laravel Mix` la cual proporciouna una API fluida para definir los pasos de compilación de Webpack de nuestra aplicación Laravel utilizando varios procesadores de CSS y Javascript.
+
+1. Instalar NodeJS
+
+		$ curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+		$ sudo apt-get install -y nodejs
+		
+- Verificar que hemos instalado NodeJS correctamente:
+
+		$ node -v
+		$ npm -v
+		
+- Otra opción a `npm` es `yarn`
+
+2. Actualizar el `layout` de una aplicación añadiendo lo siguiente:
+
+		<link rel="stylesheet" href="/css/app.css">
+		
+		<script src="/js/app.js" defer></script>
+
+- Mover el código CSS al siguiente fichero: 
+	
+		resources/assets/sass/app.scss
+
+3. Install Yarn
+
+		$ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+		$ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+		$ sudo apt update
+		$ sudo apt install yarn
+		$ yarn --version
+
+4. Instalar las dependencias de Laravel para el Frontend, es decir las dependencias definidas en el archivo `package.json` 
+
+- Puedes ejecutar `npm install` o `yarn`
+
+5. Compilar los archivos fuentes: 
+		`resources/assets/sass/app.scss`
+		`resources/assets/sass/app.scss`
+
+- Puedes ejecutar `npm run dev` o `yarn dev`
+
+6. Para evitar ejecutar `npm run dev` o `yarn dev` cada vez que hagamos un cambio
+
+- Puedes ejecutar `npm run watch` o `yarn watch`
+		 
+7. Para evitar refrescar el navegador manualmente, podemos usar `BrowserSync`
+
+- Añadir el siguiente codigo en el fichero `/home/decos/repos/2001_Dominando_Laravel/laravel/webpack.mix.js`
+
+		mix.browserSync('http://localhost:8000');
+		
+- Ejecutar `yarn watch` nuevamente
+
+8. La tarea de comprimir los ficheros finales, consume un tiempo adicional por eso no se realiza con el comando `dev` o `watch`
+
+- Cuando estamos listos para publicar los archivos ejecutamos `npm run prod` o `yarn prod`
+
+9. Obligar al navegador a volver a cargar los archivos, solo si hay cambios, podemos usar versiones
+
+		if (mix.inProduction)
+		{
+			mix.version();
+		}
+	
+- Ejecutar `yarn prod` nuevamente
+
+10. Actualizar el `layout` usando las función `mix`
+
+		- <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
+		- <script src="{{ mix('css/app.js') }}" defer></script>
