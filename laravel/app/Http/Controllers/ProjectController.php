@@ -42,7 +42,7 @@ class ProjectController extends Controller
 
         // Por defecto es 15 páginas
         return view('projects.index', [
-            'projects' => Project::latest()->paginate()
+            'projects' => Project::latest()->paginate(15)
         ]);
     }
 
