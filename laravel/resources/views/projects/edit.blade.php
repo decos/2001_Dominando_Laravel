@@ -3,15 +3,32 @@
 @section('title', 'Editar proyecto')
 
 @section('content')
-    <h1>Editar proyecto</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-10 col-lg-6 mx-auto">
 
-    @include('partials.validation-errors')
+                @include('partials.validation-errors')
 
-    <form method="POST" action="{{ route('projects.update', $project) }}">
-        {{-- De esta forma Laravel va saber que nuestra intención es enviar una petición de tipo PATCH --}}
-        @method('PATCH')
+                <form
+                    class="bg-white py-3 px-4 shadow rounded"
+                    method="POST"
+                    action="{{ route('projects.update', $project) }}">
+                    @method('PATCH')
 
-        @include('projects._form', ['btnText' => 'Actualizar'])
+                    <h1 class="display-4">
+                        Editar proyecto
+                    </h1>
+                    <hr>
 
-    </form>
+                    @include('projects._form', ['btnText' => 'Guardar'])
+
+                    <a
+                        class="btn btn-link btn-block"
+                        href="{{ route('projects.index') }}">
+                        Cancelar
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
 @endsection
