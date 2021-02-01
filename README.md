@@ -658,3 +658,30 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 		- <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
 		- <script src="{{ mix('css/app.js') }}" defer></script>
+		
+## Diseño con Bootstrap 4 - parte 1
+
+1. Remover la dependencia que tenemos con `bootstrap`
+
+		yarn remove bootstrap
+
+2. Añadir la dependencia `bootstrap` solo para desarrollo
+
+		yarn add bootstrap --dev
+		
+3. Añadir estilos en el fichero para mejorar la navegación `resources/views/partials/nav.blade.php`
+
+4. Actualizar las vistas `login`, `register`, `email`, `reset` para que extienda del `layout`
+
+5. Corregir el error de consola que aparecen en el browser añadiendo la etiqueta meta
+
+		<meta name="csrf-token" content="{{ csrf_token() }}">
+
+6. Añadir un div que contenga como valor `app` en el `layout`
+
+7. Cambiar el color primario en el fichero `resources/assets/sass/_variables.scss`
+
+8. Añadir estilos en el fichero `layout` para mejorar la vista
+		
+
+
