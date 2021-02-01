@@ -689,5 +689,9 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 
 11. Añadir estilos en el fichero `home` para mejorar la vista
 
-12. 11. Añadir estilos en el fichero `about` para mejorar la vista
+12. Añadir estilos en el fichero `about` para mejorar la vista
+
+13. Añadir estilos en el fichero `session-status`
+
+14. Añadir estilos en el fichero `validation-errors`
 
