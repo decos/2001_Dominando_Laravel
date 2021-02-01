@@ -682,6 +682,8 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 7. Cambiar el color primario en el fichero `resources/assets/sass/_variables.scss`
 
 8. Añadir estilos en el fichero `layout` para mejorar la vista
+
+
 		
 
 
