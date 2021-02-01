@@ -683,7 +683,7 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 
 8. Añadir estilos en el fichero `layout` para mejorar la vista
 
-
+9. Añadir estilos en el fichero `contact` para mejorar la vista
 		
-
+10. Añadir estilos en el fichero `portfolio` para mejorar la vista
 
