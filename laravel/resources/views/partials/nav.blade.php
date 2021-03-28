@@ -45,6 +45,8 @@
                         @lang('Contact')
                     </a>
                 </li>
+            </ul>
+            <ul class="nav nav-pills ml-auto">
                 @guest
                     <li class="nav-item">
                         <a class="nav-link {{ setActive('login') }}"
@@ -53,15 +55,33 @@
                         </a>
                     </li>
                 @else
-                    <li class="nav-item">
+                    {{-- <li class="nav-item"> --}}
                         {{--
                         Prevenir la acción por defecto del link de enviarnos a otra página,
                         Obtiene el formulario `logout-form` y ejecuta el método `submit`
                         --}}
-                        <a class="nav-link {{ setActive('logout') }}" href="#" onclick="event.preventDefault();
+                        {{-- <a class="nav-link {{ setActive('logout') }}" href="#" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                             Cerrar sesión
                         </a>
+                    </li> --}}
+
+                    <li class="nav-item dropdown">
+                        <a
+                            class="nav-link dropdown-toggle"
+                            data-toggle="dropdown"
+                            href="#"
+                            role="button">
+                            {{ auth()->user()->name }}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a
+                                class="dropdown-item"
+                                href="#"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                Cerrar sesión
+                            </a>
+                        </div>
                     </li>
                 @endguest
             </ul>
