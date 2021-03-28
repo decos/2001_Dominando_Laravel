@@ -11,6 +11,7 @@
 |
 */
 
+
 /* Route::get('/', function () {
 return view('welcome');
 }); */
@@ -92,6 +93,10 @@ Route::get('/', function () {
 // Tambien se puede setear el lenguaje desde el archivo de rutas
 // App::setlocale('es');
 
+Route::get('/user', 'RegisterController@index')->name('users.index');
+Route::get('/user/crear', 'RegisterController@create')->name('users.create');
+
+
 // Se le puede asignar un nombre
 Route::view('/', 'home')->name('home');
 Route::view('/quienes-somos', 'about')->name('about');
@@ -143,3 +148,4 @@ Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+
