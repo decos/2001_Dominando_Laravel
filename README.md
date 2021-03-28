@@ -624,7 +624,7 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 
 5. Compilar los archivos fuentes: 
 		`resources/assets/sass/app.scss`
-		`resources/assets/sass/app.scss`
+		`resources/assets/js/app.js`
 
 - Puedes ejecutar `npm run dev` o `yarn dev`
 
@@ -694,4 +694,40 @@ Aprende a crear aplicaciones robustas y escalables con el framework más popular
 13. Añadir estilos en el fichero `session-status`
 
 14. Añadir estilos en el fichero `validation-errors`
+
+
+# Sección 3: Nivel Intermedio
+
+## Usuarios y Roles
+
+0. Modificar en el archivo de configuración `.env` el valor de la clave de usuario `root`
+
+- Limpiar el cache cada vez que se modifique el archivo que contiene las variables de entorno 
+
+		$ php artisan config:cache
+
+1. Añadir un campo en la tabla usuarios llamada `role`
+
+- Como no estamos en producción, modificación la migración `database/migrations/2014_10_12_000000_create_users_table.php`
+
+- Si estuvieramos en producción agregariamos una nueva migración
+
+2. Ejecutamos el siguiente comando para refrescar la base de datos
+
+		$ php artisan migrate:refresh
+		
+3. Crear el controlador `app/Http/Controllers/RegisterController.php` para añadir usuarios a través de POSTMAN
+
+- Añadir la nueva ruta en el fichero de rutas
+
+		Route::get('/user', 'RegisterController@index')->name('users.index');
+		Route::get('/user/crear', 'RegisterController@create')->name('users.create');
+
+- Obtener la cookie del host `http://localhost:8000/` y copiarla en postman para añadir usuarios
+
+- Usar la siguiente ruta para añadir usuarios `http://localhost:8000/user/crear`
+
+
+
+
 
