@@ -12196,3 +12196,7 @@ a.text-dark:focus {
   height: 100vh;
 }
 
+.thead-green {
+  background: #38b2ac;
+}
+

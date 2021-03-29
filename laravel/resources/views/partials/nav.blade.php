@@ -45,6 +45,17 @@
                         @lang('Contact')
                     </a>
                 </li>
+                @auth
+                    {{-- {{ dump(auth()->user()) }} --}}
+                    @if (auth()->user()->role === 'admin')
+                        <li class="nav-item">
+                            <a class="nav-link {{ setActive('users') }}"
+                                href="{{ route('users.index') }}">
+                                @lang('Users')
+                            </a>
+                        </li>
+                    @endif
+                @endauth
             </ul>
             <ul class="nav nav-pills ml-auto">
                 @guest

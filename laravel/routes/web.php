@@ -93,7 +93,7 @@ Route::get('/', function () {
 // Tambien se puede setear el lenguaje desde el archivo de rutas
 // App::setlocale('es');
 
-Route::get('/user', 'RegisterController@index')->name('users.index');
+// Route::get('/user', 'RegisterController@index')->name('users.index');
 Route::get('/user/crear', 'RegisterController@create')->name('users.create');
 
 
@@ -130,6 +130,9 @@ Route::delete('/portafolio/{project}', 'ProjectController@destroy')->name('proje
 
 Route::view('/contacto', 'contact')->name('contact');
 Route::post('contact', 'MessageController@store')->name('messages.store');
+
+Route::resource('usuarios', 'UsersController')
+    ->names('users');
 
 // Por defecto se añade esta ruta
 // Auth::routes(['register' => false]);
